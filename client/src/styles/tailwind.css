@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Hackathon Theme - Modern & Vibrant */
+    --color-background: #0A0E1A; /* Deep navy background */
+    --color-foreground: #E2E8F0; /* Light gray text */
+    --color-border: rgba(148, 163, 184, 0.2); /* Subtle borders */
+    --color-input: rgba(30, 41, 59, 0.8); /* Dark input background */
+    --color-ring: #3B82F6; /* Bright blue focus ring */
+
+    /* Card Colors */
+    --color-card: rgba(15, 23, 42, 0.6); /* Glass morphism cards */
+    --color-card-foreground: #F1F5F9; /* Light card text */
+
+    /* Popover Colors */
+    --color-popover: rgba(15, 23, 42, 0.9); /* Dark popover */
+    --color-popover-foreground: #F1F5F9; /* Light popover text */
+
+    /* Muted Colors */
+    --color-muted: rgba(30, 41, 59, 0.5); /* Muted backgrounds */
+    --color-muted-foreground: #94A3B8; /* Muted text */
+
+    /* Primary Colors - Electric Blue */
+    --color-primary: #3B82F6; /* Electric blue */
+    --color-primary-foreground: #FFFFFF; /* White text on primary */
+
+    /* Secondary Colors - Purple */
+    --color-secondary: #8B5CF6; /* Purple */
+    --color-secondary-foreground: #FFFFFF; /* White text */
+
+    /* Accent Colors - Cyan */
+    --color-accent: #06B6D4; /* Cyan */
+    --color-accent-foreground: #0F172A; /* Dark text */
+
+    /* Success Colors - Green */
+    --color-success: #10B981; /* Emerald green */
+    --color-success-foreground: #FFFFFF; /* White text */
+
+    /* Warning Colors - Orange */
+    --color-warning: #F59E0B; /* Amber */
+    --color-warning-foreground: #1F2937; /* Dark text */
+
+    /* Error/Destructive Colors - Red */
+    --color-error: #EF4444; /* Red */
+    --color-error-foreground: #FFFFFF; /* White text */
+    --color-destructive: #EF4444; /* Red */
+    --color-destructive-foreground: #FFFFFF; /* White text */
+
+    /* Gradient Colors */
+    --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+    --gradient-success: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+    --gradient-background: radial-gradient(ellipse at top, #1E293B 0%, #0A0E1A 100%);
+
+    /* Glow Colors */
+    --glow-primary: 0 0 20px rgba(59, 130, 246, 0.3);
+    --glow-secondary: 0 0 20px rgba(139, 92, 246, 0.3);
+    --glow-success: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground;
+    font-family: 'Inter', sans-serif;
+    background: var(--gradient-background);
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Hackathon Enhanced Shadows */
+  .hackathon-shadow-primary {
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+  }
+
+  .hackathon-shadow-secondary {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .hackathon-shadow-glow {
+    box-shadow: var(--glow-primary);
+  }
+
+  /* Glass Morphism Effect */
+  .glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+  }
+
+  .glass-input {
+    background: rgba(30, 41, 59, 0.3);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+  }
+
+  /* Gradient Backgrounds */
+  .gradient-bg-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-bg-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-bg-success {
+    background: var(--gradient-success);
+  }
+
+  /* Enhanced Transitions */
+  .hackathon-transition {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hackathon-transition-fast {
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-success {
+    box-shadow: var(--glow-success);
+  }
+
+  /* Hover Effects */
+  .hackathon-hover-lift {
+    transition: transform 200ms ease-out;
+  }
+
+  .hackathon-hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Pulse Animation */
+  @keyframes hackathon-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .hackathon-pulse {
+    animation: hackathon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Gradient Text */
+  .gradient-text-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
