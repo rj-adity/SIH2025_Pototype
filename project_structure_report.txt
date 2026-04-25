@@ -1,0 +1,128 @@
+========== PROJECT STRUCTURE ==========
+
+helllo/
+    .mcp.json
+    config.js
+    corridor.png
+    food_court.png
+    library.png
+    main_entrance.png
+    parking.png
+    platform.png
+    project_audit.py
+    Backend/
+        app.py
+        create_db.py
+        database.py
+        events.db
+        event_manager.py
+        predict.py
+        requirements.txt
+        start_backend.py
+        CameraClient/
+            camera.html
+            generate_qr.py
+            Readme.md
+        models/
+            camera_test.py
+            deploy.prototxt
+            deploy_gender.prototxt
+            gender_detector.py
+            gender_net.caffemodel
+            live_violence_detection.py
+            res10_300x300_ssd_iter_140000.caffemodel
+            tempCodeRunnerFile.py
+            test_gender.py
+            violence_detection_model.h5
+        storage/
+            events/
+    SIH2025_Pototype/
+        .gitignore
+        index.html
+        package-lock.json
+        package.json
+        postcss.config.js
+        tailwind.config.js
+        vercel.json
+        vite.config.js
+        public/
+            config.js
+            manifest.json
+            react.svg
+            vite.svg
+            _redirects
+        src/
+            App.css
+            App.jsx
+            index.css
+            index.jsx
+            main.jsx
+            Routes.jsx
+            assets/
+                react.svg
+            components/
+                AppIcon.jsx
+                AppImages.jsx
+                ErrorBoundary.jsx
+                ScrollToTop.jsx
+                ui/
+                    Button.jsx
+                    Checkbox.jsx
+                    Header.jsx
+                    Input.jsx
+                    Select.jsx
+            pages/
+                NotFound.jsx
+                emergency-response-coordination-hub/
+                    index.jsx
+                    components/
+                        CommandPanel.jsx
+                        EmergencyStatusBanner.jsx
+                        InteractiveMap.jsx
+                        ResponseMetrics.jsx
+                        StatusCard.jsx
+                real-time-monitoring-command-center/
+                    index.jsx
+                    components/
+                        AlertFeed.jsx
+                        CrowdAnalyticsChart.jsx
+                        KPICard.jsx
+                        LocationSelector.jsx
+                        VideoFeedGrid.jsx
+                safety-analytics-and-reporting-center/
+                    index.jsx
+                    components/
+                        ComplianceDeadlines.jsx
+                        DateRangeControls.jsx
+                        IncidentDataTable.jsx
+                        ReportGenerator.jsx
+                        SafetyAuditChecklist.jsx
+                        SafetyKPICard.jsx
+                        TrendAnalysisChart.jsx
+                threat-detection-and-analytics-dashboard/
+                    index.jsx
+                    components/
+                        CorrelationAnalysis.jsx
+                        FilterPanel.jsx
+                        IncidentTimeline.jsx
+                        ThreatClassificationChart.jsx
+                        ThreatHeatmap.jsx
+                        ThreatMetricsCard.jsx
+            styles/
+                hackathon-theme.css
+                index.css
+                tailwind.css
+            utils/
+                cn.js
+
+
+========== IMPORTANT FILES FOUND ==========
+
+C:\Users\adity\OneDrive\Desktop\helllo\Backend\app.py
+C:\Users\adity\OneDrive\Desktop\helllo\Backend\events.db
+C:\Users\adity\OneDrive\Desktop\helllo\Backend\event_manager.py
+C:\Users\adity\OneDrive\Desktop\helllo\Backend\predict.py
+C:\Users\adity\OneDrive\Desktop\helllo\Backend\models\live_violence_detection.py
+C:\Users\adity\OneDrive\Desktop\helllo\Backend\models\violence_detection_model.h5
+C:\Users\adity\OneDrive\Desktop\helllo\SIH2025_Pototype\src\pages\real-time-monitoring-command-center\components\AlertFeed.jsx
+C:\Users\adity\OneDrive\Desktop\helllo\SIH2025_Pototype\src\pages\real-time-monitoring-command-center\components\VideoFeedGrid.jsx

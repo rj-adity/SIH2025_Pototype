@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="/config.js"></script>
+
+<title>Campus Camera</title>
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+#controls{
+    position:absolute;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+}
+
+button{
+    padding:12px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:10px;
+    background:white;
+}
+
+#label{
+    position:absolute;
+    top:20px;
+    left:20px;
+    color:white;
+    font-size:20px;
+    font-family:sans-serif;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="label">Campus Camera</div>
+
+<video id="video" autoplay playsinline></video>
+
+<div id="controls">
+<button onclick="switchCamera()">Switch Camera</button>
+</div>
+
+<script>
+
+let video = document.getElementById("video");
+let currentFacing = "environment";
+let stream;
+
+// read camera_id from URL
+const params = new URLSearchParams(window.location.search);
+const cameraId = params.get("camera_id");
+
+if (!cameraId) {
+    alert("Camera ID missing. Use ?camera_id=location");
+    throw new Error("Camera ID missing");
+}
+
+document.getElementById("label").innerText = "Camera: " + cameraId;
+
+const SERVER_URL = window.SERVER_URL;
+const API_URL = "/frame/" + cameraId;
+
+const canvas = document.createElement("canvas");
+
+async function startCamera(){
+
+    if(stream){
+        stream.getTracks().forEach(track => track.stop());
+    }
+
+    stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: currentFacing },
+        audio:false
+    });
+
+    video.srcObject = stream;
+
+}
+
+function switchCamera(){
+
+    if(currentFacing === "environment"){
+        currentFacing = "user";
+    }else{
+        currentFacing = "environment";
+    }
+
+    startCamera();
+
+}
+
+startCamera();
+
+
+/* ------------------------------
+   FRAME SENDING TO BACKEND
+------------------------------ */
+
+setInterval(() => {
+
+    if(!video.videoWidth) return;
+
+    canvas.width = 640;
+    canvas.height = 480;
+
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    canvas.toBlob(blob => {
+
+        const formData = new FormData();
+        formData.append("file", blob, "frame.jpg");
+
+        const API_URL = "/frame/" + cameraId;
+
+        fetch(API_URL, {
+            method: "POST",
+            body: formData
+        });
+
+    }, "image/jpeg", 0.6);
+
+}, 500); // ~5 FPS
+
+</script>
+
+</body>
+</html>
